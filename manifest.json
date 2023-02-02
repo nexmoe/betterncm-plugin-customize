@@ -1,11 +1,13 @@
 {
     "manifest_version": 1,
-    "name": "Costume",
-    "slug": "example-plugin",
+    "name": "Customize",
+    "slug": "Customize your player with magic",
     "version": "0.1.0",
     "author": "Nexmoe",
-    "description": "Description of the plugin", 
-    "betterncm_version": "^0.2.6",
+    "author_links": [
+        "https://github.com/nexmoe"
+    ],
+    "description": "为你提供 CSS 注入功能，让你可以自定义播放器的样式", 
     "preview": "preview.png", 
     
     "injects": {
