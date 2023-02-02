@@ -1,0 +1,1 @@
+betterncm.utils.waitForElement(".m-list-recmd div h3 a[data-da-event]").then(e=>e.innerText="Hello BetterNCM!")
