@@ -28,10 +28,9 @@ plugin.onConfig((tools) => {
             })
         ),
         dom("br", {}),
-        dom("br", {}),
         dom(
             "div",
-            { style: { margin: "10px 8px" }, },
+            { },
             tools.makeBtn("说明", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize"), false),
             tools.makeBtn("反馈", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize"), false),
         ),
