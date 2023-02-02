@@ -2,6 +2,8 @@
 <h1 align="center">BetterNCM Plugin Customize</h1>
 <h3 align="center">注入你的 CSS，让网易云变成你的形状</h3>
 
+![cover](./cover.png)
+
 ## Example
 
 以下代码魔改了 RedefineNowPlaying，保存后可能需要重启网易云音乐
