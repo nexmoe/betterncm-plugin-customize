@@ -6,7 +6,7 @@
     "author_links": [
         "https://github.com/nexmoe"
     ],
-    "description": "注入你的 CSS，让网易云变成你的形状", 
+    "description": "注入你的 CSS 和 JS 代码，让网易云变成你的形状", 
     "preview": "preview.png", 
     
     "injects": {

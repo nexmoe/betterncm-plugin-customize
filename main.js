@@ -7,9 +7,13 @@ async function styleLoader() {
     document.head.appendChild(style);
 }
 
-function styleUpdate(val) {
-    const style = document.getElementById("customizeCss");
-    style.innerHTML = val;
+function scriptLoader() {
+    (new Function(plugin.getConfig("customizeJS", "")))();
+}
+
+function update(id, val) {
+    const dom = document.getElementById(id);
+    dom.innerHTML = val;
 }
 
 plugin.onConfig((tools) => {
@@ -17,29 +21,48 @@ plugin.onConfig((tools) => {
     return dom(
         "div",
         {},
-        dom("br", {}),
         dom(
             "div",
             {},
             dom("p", {
-                innerText: "自定义 CSS：",
+                innerText: "CSS Code",
                 style: { margin: "10px 8px" },
             }),
             dom("textarea", {
                 innerText: plugin.getConfig("customizeCss", ""),
+                resize: "vertical",
+                rows: 10,
                 oninput: (event) => {
                     plugin.setConfig("customizeCss", event.target.value)
-                    styleUpdate(event.target.value);
+                    update("customizeCss", event.target.value);
                 },
-                style: { width: "100%", height: "200px", borderRadius: "0.5em", padding: "8px" },
+                style: { width: "100%", borderRadius: "0.5em", padding: "8px" },
             })
         ),
         dom("br", {}),
         dom(
             "div",
             {},
-             tools.makeBtn("说明", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize#readme"), false),
+            dom("p", {
+                innerText: "JavaScript Code（首次启动时执行）",
+                style: { margin: "10px 8px" },
+            }),
+            dom("textarea", {
+                innerText: plugin.getConfig("customizeJS", ""),
+                rows: 8,
+                oninput: (event) => {
+                    plugin.setConfig("customizeJS", event.target.value)
+                },
+                style: { width: "100%", borderRadius: "0.5em", padding: "8px" },
+            })
+        ),
+        dom("br", {}),
+        dom(
+            "div",
+            {},
+            tools.makeBtn("说明", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize#readme"), false),
             tools.makeBtn("反馈", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize/issues"), false),
+            tools.makeBtn("社区", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize/discussions"), false),
         ),
 
     );
@@ -47,4 +70,5 @@ plugin.onConfig((tools) => {
 
 plugin.onLoad(async () => {
     styleLoader();
+    scriptLoader();
 });

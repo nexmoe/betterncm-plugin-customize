@@ -1,9 +1,19 @@
 body.rectangle-cover .g-single-track .g-singlec-ct .n-single .sd {
-    width: clamp(280px,20vw,400px);
+	width: clamp(280px, 20vw, 400px);
 }
 .g-single .g-singlec-ct .n-single .mn .head .inf .title h1 {
-    font-size: 20px!important;
+	font-size: 20px !important;
 }
 .g-single-track .g-singlec-ct .n-single .mn {
-    margin-bottom: -30px;
+	margin-bottom: -32px;
+}
+.rnp-lyrics {
+	font-weight: bold;
+}
+.m-nav li a,
+.m-nav li .edt {
+	border-radius: 6px !important;
+}
+.m-nav li.z-sel a {
+	background: rgba(31, 33, 51, 0.07);
 }
