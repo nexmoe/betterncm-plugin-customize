@@ -3,8 +3,13 @@
 async function styleLoader() {
     const style = document.createElement("style");
     style.innerHTML = plugin.getConfig("customizeCss", "");
-    console.log(plugin.getConfig("customizeCss", ""))
+    style.id = "customizeCss";
     document.head.appendChild(style);
+}
+
+function styleUpdate(val) {
+    const style = document.getElementById("customizeCss");
+    style.innerHTML = val;
 }
 
 plugin.onConfig((tools) => {
@@ -22,17 +27,19 @@ plugin.onConfig((tools) => {
             }),
             dom("textarea", {
                 innerText: plugin.getConfig("customizeCss", ""),
-                oninput: (event) =>
-                    plugin.setConfig("customizeCss", event.target.value),
-                style: { width: "100%", height: "200px", borderRadius: "0.5em", padding: "10px" },
+                oninput: (event) => {
+                    plugin.setConfig("customizeCss", event.target.value)
+                    styleUpdate(event.target.value);
+                },
+                style: { width: "100%", height: "200px", borderRadius: "0.5em", padding: "8px" },
             })
         ),
         dom("br", {}),
         dom(
             "div",
-            { },
-            tools.makeBtn("说明", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize"), false),
-            tools.makeBtn("反馈", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize"), false),
+            {},
+             tools.makeBtn("说明", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize#readme"), false),
+            tools.makeBtn("反馈", () => betterncm.ncm.openUrl("https://github.com/nexmoe/betterncm-plugin-customize/issues"), false),
         ),
 
     );
